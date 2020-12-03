@@ -643,9 +643,6 @@ def random_power(channel, tx_max, granuty, noise, DUE_thr, I_thr, P_c):
         EE_sum = np.sum(cur_cap[:-1]/summed_tx_power[:-1])
         PW_sum = np.sum(np.sum(tx_power, axis=1)[:-1])
 
-        print("SE_sum = ", SE_sum)
-        print("EE_sum = ", EE_sum)
-
         if np.sum(CUE_mask) == 0:
             CUE_violation = CUE_violation + 1
 
@@ -1166,7 +1163,7 @@ def Print_Test_Full(model_SE, model_EE,  model_PW, model_SE_super, model_EE_supe
 
     ### Random case
     print("")
-    RAN_SE, RAN_EE, RAN_PW, PRO_CUE_vio, PRO_DUE_vio = random_power(data_test, tx_max, Num_power_level, noise, DUE_thr, I_thr, P_c, tx_power_set)
+    RAN_SE, RAN_EE, RAN_PW, PRO_CUE_vio, PRO_DUE_vio = random_power(data_test, tx_max, Num_power_level, noise, DUE_thr, I_thr, P_c)
     print("Random case: ", end='')
     print("SE = %0.2f  EE = %0.2f PW = %0.2f, Vio(CUE) = %0.2f  Vio(DUE) = %0.2f"%(RAN_SE*1.44, RAN_EE*1.44*1000, RAN_PW, PRO_CUE_vio*100, PRO_DUE_vio*100))
 
